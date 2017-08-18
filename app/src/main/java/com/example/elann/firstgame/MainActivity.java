@@ -28,24 +28,21 @@ public class MainActivity extends Activity {
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) totoro.getLayoutParams();
                 switch(event.getAction())
                 {
                     case MotionEvent.ACTION_DOWN:
                         break;
                     case MotionEvent.ACTION_MOVE:
                         int x_cord = (int)event.getRawX();
-                        //int y_cord = (int)event.getRawY();
 
                         if(x_cord > windowwidth) {
                             x_cord = windowwidth;
                         }
-                        /*if(y_cord > windowheight) {
-                            y_cord = windowheight;
-                        }*/
+                        else if(x_cord < totoro.getWidth()/2) {
+                            x_cord = totoro.getWidth()/2;
+                        }
 
                         totoro.setX(x_cord - totoro.getWidth()/2);
-                        //totoro.setY(y_cord - totoro.getHeight()/2 - 25);
 
                         break;
                     default:
